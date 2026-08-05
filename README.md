@@ -27,6 +27,6 @@ Test API and some packages
 
     go_router: ^17.3.0
     riverpod: ^3.4.2
-    flutter_localization
+    flutter_localization: ^0.4.1
 
 ## **Preview application**
