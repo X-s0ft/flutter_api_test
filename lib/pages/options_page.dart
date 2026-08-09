@@ -1,23 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_api_test/riverpod/state_riverpod.dart';
 import 'package:flutter_api_test/widgets/all_widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class OptionsPage extends StatefulWidget {
+class OptionsPage extends ConsumerStatefulWidget {
   const OptionsPage({super.key});
 
   @override
-  State<OptionsPage> createState() => _OptionsPageState();
+  ConsumerState<OptionsPage> createState() => _OptionsPageState();
 }
 
-class _OptionsPageState extends State<OptionsPage> {
-  // TODO: Функцию позже удалить
-  void ipdateselected(Set<int> newselect){
-    setState(() {
-      _selected = newselect;
-    });
+class _OptionsPageState extends ConsumerState<OptionsPage> {
+  void updateSelectedLang(Set<int> newselected) {
+    ref.read(riverpodLang.notifier).update((state) => newselected);
   }
-  Set<int> _selected = {1};
+
+  void updateSelectedTheme(Set<int> newselected) {
+    ref.read(riverpodTheme.notifier).update((state) => newselected);
+  }
+
   @override
   Widget build(BuildContext context) {
+    Set<int> stateTheme = ref.watch(riverpodTheme);
+    Set<int> stateLang = ref.watch(riverpodLang);
+
     return Scaffold(
       body: Center(
         child: Column(
@@ -26,22 +32,23 @@ class _OptionsPageState extends State<OptionsPage> {
             OptionContainer(
               'Тема',
               SegmentedButton(
-                selected: {1},
+                selected: stateTheme,
                 segments: [
                   ButtonSegment(value: 1, label: Text('Светлая')),
                   ButtonSegment(value: 2, label: Text('Тёмная')),
                 ],
+                onSelectionChanged: updateSelectedTheme,
               ),
             ),
             OptionContainer(
               'Язык',
               SegmentedButton(
-                selected: _selected,
+                selected: stateLang,
                 segments: [
                   ButtonSegment(value: 1, label: Text('RU')),
                   ButtonSegment(value: 2, label: Text('EN')),
                 ],
-                onSelectionChanged: ipdateselected
+                onSelectionChanged: updateSelectedLang,
               ),
             ),
           ],
