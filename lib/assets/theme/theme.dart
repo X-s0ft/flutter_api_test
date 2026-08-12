@@ -5,5 +5,5 @@ import 'package:flutter_api_test/assets/theme/colors.dart';
 final lighttext = TextStyle();
 final darktext = TextStyle();
 
-final lighttheme = ThemeData(useMaterial3: true);
-final darktheme = ThemeData(useMaterial3: true);
+final lighttheme = ThemeData(useMaterial3: true, scaffoldBackgroundColor: maincolorl);
+final darktheme = ThemeData(useMaterial3: true, scaffoldBackgroundColor: thirdcolord);

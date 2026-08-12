@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_api_test/database/hive_theme.dart';
 import 'package:flutter_api_test/riverpod/state_riverpod.dart';
 import 'package:flutter_api_test/widgets/all_widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -11,16 +12,10 @@ class OptionsPage extends ConsumerStatefulWidget {
 }
 
 class _OptionsPageState extends ConsumerState<OptionsPage> {
-  void updateSelectedLang(Set<int> newselected) {
-    ref.read(riverpodLang.notifier).update((state) => newselected);
-  }
-
-  void updateSelectedTheme(Set<int> newselected) {
-    ref.read(riverpodTheme.notifier).update((state) => newselected);
-  }
-
+  
   @override
   Widget build(BuildContext context) {
+    final hivesavertheme = HiveTheme(reference: ref);
     Set<int> stateTheme = ref.watch(riverpodTheme);
     Set<int> stateLang = ref.watch(riverpodLang);
 
@@ -37,7 +32,7 @@ class _OptionsPageState extends ConsumerState<OptionsPage> {
                   ButtonSegment(value: 1, label: Text('Светлая')),
                   ButtonSegment(value: 2, label: Text('Тёмная')),
                 ],
-                onSelectionChanged: updateSelectedTheme,
+                onSelectionChanged: hivesavertheme.updateSelectedTheme,
               ),
             ),
             OptionContainer(
@@ -48,7 +43,7 @@ class _OptionsPageState extends ConsumerState<OptionsPage> {
                   ButtonSegment(value: 1, label: Text('RU')),
                   ButtonSegment(value: 2, label: Text('EN')),
                 ],
-                onSelectionChanged: updateSelectedLang,
+                onSelectionChanged: null,
               ),
             ),
           ],

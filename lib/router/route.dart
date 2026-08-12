@@ -11,14 +11,14 @@ final GoRouter router = GoRouter(
       branches: [
         StatefulShellBranch(
           routes: [
-            GoRoute(path: '/', builder: (context, state) => const InfoPage()),
+            GoRoute(path: '/', builder: (context, state) => InfoPage()),
           ],
         ),
         StatefulShellBranch(
           routes: [
             GoRoute(
               path: '/options',
-              builder: (context, state) => const OptionsPage(),
+              builder: (context, state) => OptionsPage(),
             ),
           ],
         ),
