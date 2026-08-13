@@ -8,8 +8,7 @@ class ConfigWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final mainTheme = ref.watch(chekertheme);
-
+    final mainTheme = ref.watch(riverpodTheme);
     return MaterialApp.router(
       debugShowCheckedModeBanner: true,
       showSemanticsDebugger: false,

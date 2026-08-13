@@ -10,15 +10,16 @@ class HiveTheme {
   WidgetRef reference;
 
   Future<void> _savetheme(Set<int> newitem) async {
-    box.put('isdark', newitem.first);
+    boxTheme.put('isdark', newitem.first);
     log('Тема сохранена');
   }
 
   void updateSelectedTheme(Set<int> newselected) {
-    reference.read(riverpodTheme.notifier).update((state) => newselected);
+    reference.read(riverpodThemeIndex.notifier).update((state) => newselected);
     _savetheme(newselected);
     reference
-        .read(chekertheme.notifier)
+        .read(riverpodTheme.notifier)
         .update((state) => newselected.first == 1 ? lighttheme : darktheme);
+    log('Тема обновлена');
   }
 }

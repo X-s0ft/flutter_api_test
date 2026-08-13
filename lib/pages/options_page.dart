@@ -15,7 +15,7 @@ class _OptionsPageState extends ConsumerState<OptionsPage> {
   @override
   Widget build(BuildContext context) {
     final hivesavertheme = HiveTheme(reference: ref);
-    Set<int> stateTheme = ref.watch(riverpodTheme);
+    Set<int> stateTheme = ref.watch(riverpodThemeIndex);
 
     return Scaffold(
       body: Center(

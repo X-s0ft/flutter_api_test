@@ -1,3 +1,4 @@
 import 'package:hive/hive.dart';
 
-late Box box;
+late Box boxTheme;
+late Box boxLang;

@@ -6,6 +6,6 @@ import 'widgets/all_widgets.dart';
 
 Future<void> main() async {
   await Hive.initFlutter();
-  box = await Hive.openBox('ThemeBox');
+  boxTheme = await Hive.openBox('ThemeBox');
   runApp(ProviderScope(child: ConfigWidget()));
 }
