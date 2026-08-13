@@ -12,12 +12,10 @@ class OptionsPage extends ConsumerStatefulWidget {
 }
 
 class _OptionsPageState extends ConsumerState<OptionsPage> {
-  
   @override
   Widget build(BuildContext context) {
     final hivesavertheme = HiveTheme(reference: ref);
     Set<int> stateTheme = ref.watch(riverpodTheme);
-    Set<int> stateLang = ref.watch(riverpodLang);
 
     return Scaffold(
       body: Center(
@@ -38,7 +36,7 @@ class _OptionsPageState extends ConsumerState<OptionsPage> {
             OptionContainer(
               'Язык',
               SegmentedButton(
-                selected: stateLang,
+                selected: {1},
                 segments: [
                   ButtonSegment(value: 1, label: Text('RU')),
                   ButtonSegment(value: 2, label: Text('EN')),
