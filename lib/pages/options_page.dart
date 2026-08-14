@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_api_test/database/hive_lang.dart';
 import 'package:flutter_api_test/database/hive_theme.dart';
 import 'package:flutter_api_test/riverpod/state_riverpod.dart';
 import 'package:flutter_api_test/widgets/all_widgets.dart';
@@ -15,7 +16,9 @@ class _OptionsPageState extends ConsumerState<OptionsPage> {
   @override
   Widget build(BuildContext context) {
     final hivesavertheme = HiveTheme(reference: ref);
+    final hivesaverlang = HiveLang(reference: ref);
     Set<int> stateTheme = ref.watch(riverpodThemeIndex);
+    Set<int> stateLang = ref.watch(riverpdLangIndex);
 
     return Scaffold(
       body: Center(
@@ -36,12 +39,12 @@ class _OptionsPageState extends ConsumerState<OptionsPage> {
             OptionContainer(
               'Язык',
               SegmentedButton(
-                selected: {1},
+                selected: stateLang,
                 segments: [
                   ButtonSegment(value: 1, label: Text('RU')),
                   ButtonSegment(value: 2, label: Text('EN')),
                 ],
-                onSelectionChanged: null,
+                onSelectionChanged: hivesaverlang.updateSelcetedLang,
               ),
             ),
           ],

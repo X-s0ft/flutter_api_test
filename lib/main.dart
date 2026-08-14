@@ -7,5 +7,6 @@ import 'widgets/all_widgets.dart';
 Future<void> main() async {
   await Hive.initFlutter();
   boxTheme = await Hive.openBox('ThemeBox');
+  boxLang = await Hive.openBox('LangBox');
   runApp(ProviderScope(child: ConfigWidget()));
 }

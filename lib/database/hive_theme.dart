@@ -11,7 +11,6 @@ class HiveTheme {
 
   Future<void> _savetheme(Set<int> newitem) async {
     boxTheme.put('isdark', newitem.first);
-    log('Тема сохранена');
   }
 
   void updateSelectedTheme(Set<int> newselected) {
@@ -20,6 +19,6 @@ class HiveTheme {
     reference
         .read(riverpodTheme.notifier)
         .update((state) => newselected.first == 1 ? lighttheme : darktheme);
-    log('Тема обновлена');
+    log('Выбрана новая тема: ${newselected.first}');
   }
 }

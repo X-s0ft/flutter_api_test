@@ -6,11 +6,9 @@ const textcolord = Colors.white;
 
 // TODO: Добавить цвета
 // Light
-final maincolorl = Colors.amber;
-final secindcolorl = Colors.deepOrange;
-final thirdcolorl = Colors.red;
+final backcolorL = Color.fromARGB(255, 242, 242, 242);
+final navcolorL = Color.fromARGB(255, 0, 218, 65);
 
 // Dark
-final maincolord = Colors.orange[900];
-final secindcolord = Colors.deepOrange[800];
-final thirdcolord = Colors.red[900];
+final backcolorD = Color.fromARGB(255, 40, 40, 40);
+final navcolorD = Color.fromARGB(255, 5, 107, 36);
