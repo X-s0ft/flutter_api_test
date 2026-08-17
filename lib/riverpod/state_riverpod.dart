@@ -9,8 +9,8 @@ final riverpodThemeIndex = StateProvider(
   (ref) => <int>{boxTheme.get('isdark', defaultValue: {1})},
 );
 
-final riverpdLangIndex = StateProvider((ref) => <int>{boxLang.get('lang')});
+final riverpdLangIndex = StateProvider((ref) => <int>{boxLang.get('lang', defaultValue: {1})});
 
 final riverpodTheme = StateProvider(
-  ((ref) => <int>{boxTheme.get('isdark', defaultValue: {1})}.first == 1 ? lighttheme : darktheme),
+  ((ref) => <int>{boxTheme.get('isdark')}.first == 1 ? lighttheme : darktheme),
 );
