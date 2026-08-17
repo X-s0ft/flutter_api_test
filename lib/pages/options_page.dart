@@ -34,6 +34,7 @@ class _OptionsPageState extends ConsumerState<OptionsPage> {
                   ButtonSegment(value: 2, label: Text('Тёмная')),
                 ],
                 onSelectionChanged: hivesavertheme.updateSelectedTheme,
+                // onSelectionChanged: hivesavertheme.updateSelectedTheme,
               ),
             ),
             OptionContainer(
@@ -45,6 +46,7 @@ class _OptionsPageState extends ConsumerState<OptionsPage> {
                   ButtonSegment(value: 2, label: Text('EN')),
                 ],
                 onSelectionChanged: hivesaverlang.updateSelcetedLang,
+                // onSelectionChanged: hivesaverlang.updateSelcetedLang,
               ),
             ),
           ],

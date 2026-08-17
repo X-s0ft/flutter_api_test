@@ -9,6 +9,7 @@ class HiveTheme {
 
   WidgetRef reference;
 
+
   Future<void> _savetheme(Set<int> newitem) async {
     boxTheme.put('isdark', newitem.first);
   }
