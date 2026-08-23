@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'package:flutter_api_test/assets/i18n/lib/gen/strings.g.dart';
 import 'package:flutter_api_test/database/boxes_hive.dart';
 import 'package:flutter_api_test/riverpod/state_riverpod.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -14,7 +15,14 @@ class HiveLang {
 
   void updateSelcetedLang(Set<int> newselected) {
     reference.read(riverpdLangIndex.notifier).update((state) => newselected);
+    reference
+        .read(riverpodLang.notifier)
+        .update(
+          (state) => newselected.first == 1 ? AppLocale.en : AppLocale.ru,
+        );
+
     _saveLang(newselected);
-    log('Выбран новый язык выбран ${newselected.first}');
+    
+    log('Выбран язык №${newselected.first}');
   }
 }

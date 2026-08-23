@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_api_test/assets/i18n/lib/gen/strings.g.dart';
 import 'package:flutter_api_test/database/hive_lang.dart';
 import 'package:flutter_api_test/database/hive_theme.dart';
 import 'package:flutter_api_test/riverpod/state_riverpod.dart';
@@ -30,8 +31,9 @@ class _OptionsPageState extends ConsumerState<OptionsPage> {
               SegmentedButton(
                 selected: stateTheme,
                 segments: [
-                  ButtonSegment(value: 1, label: Text('Светлая')),
-                  ButtonSegment(value: 2, label: Text('Тёмная')),
+                  // TODO: Решить ошибку с обновлением данных (после 3-его клика начинает работать)
+                  ButtonSegment(value: 1, label: Text(t.light)),
+                  ButtonSegment(value: 2, label: Text(t.dark)),
                 ],
                 onSelectionChanged: hivesavertheme.updateSelectedTheme,
               ),
@@ -41,8 +43,8 @@ class _OptionsPageState extends ConsumerState<OptionsPage> {
               SegmentedButton(
                 selected: stateLang,
                 segments: [
-                  ButtonSegment(value: 1, label: Text('RU')),
-                  ButtonSegment(value: 2, label: Text('EN')),
+                  ButtonSegment(value: 1, label: Text('EN')),
+                  ButtonSegment(value: 2, label: Text('RU')),
                 ],
                 onSelectionChanged: hivesaverlang.updateSelcetedLang,
               ),

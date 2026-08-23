@@ -13,9 +13,9 @@ class BNBar extends StatefulWidget {
 List<BottomNavigationBarItem> get _buildBNBItem => [
   const BottomNavigationBarItem(
     icon: Icon(Icons.account_balance_rounded),
-    label: 'Информация',
+    label: '',
   ),
-  const BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Настройки'),
+  const BottomNavigationBarItem(icon: Icon(Icons.settings), label: ''),
 ];
 
 class _BNBarState extends State<BNBar> {
