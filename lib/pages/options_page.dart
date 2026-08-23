@@ -31,7 +31,6 @@ class _OptionsPageState extends ConsumerState<OptionsPage> {
               SegmentedButton(
                 selected: stateTheme,
                 segments: [
-                  // TODO: Решить ошибку с обновлением данных (после 3-его клика начинает работать)
                   ButtonSegment(value: 1, label: Text(t.light)),
                   ButtonSegment(value: 2, label: Text(t.dark)),
                 ],

@@ -19,6 +19,6 @@ final riverpodTheme = StateProvider(
 
 final riverpodLang = StateProvider(
   (val) => <int>{boxLang.get('lang', defaultValue: 1)}.first == 1
-      ? AppLocale.en
-      : AppLocale.ru,
+      ? LocaleSettings.setLocale(AppLocale.en)
+      : LocaleSettings.setLocale(AppLocale.ru),
 );

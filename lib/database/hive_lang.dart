@@ -18,11 +18,12 @@ class HiveLang {
     reference
         .read(riverpodLang.notifier)
         .update(
-          (state) => newselected.first == 1 ? AppLocale.en : AppLocale.ru,
+          (state) => newselected.first == 1
+              ? LocaleSettings.setLocale(AppLocale.en)
+              : LocaleSettings.setLocale(AppLocale.ru),
         );
-
     _saveLang(newselected);
-    
+
     log('Выбран язык №${newselected.first}');
   }
 }
