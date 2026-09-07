@@ -27,7 +27,7 @@ class _OptionsPageState extends ConsumerState<OptionsPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             OptionContainer(
-              'Тема',
+              t.theme,
               SegmentedButton(
                 selected: stateTheme,
                 segments: [
@@ -38,7 +38,7 @@ class _OptionsPageState extends ConsumerState<OptionsPage> {
               ),
             ),
             OptionContainer(
-              'Язык',
+              t.language,
               SegmentedButton(
                 selected: stateLang,
                 segments: [

@@ -9,7 +9,7 @@ class OptionContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(30),
+      margin: EdgeInsets.all(10),
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.black, width: 3),
