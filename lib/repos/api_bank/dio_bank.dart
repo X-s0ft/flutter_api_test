@@ -1,22 +1,20 @@
-import 'dart:convert';
-import 'dart:developer';
-
 import 'package:dio/dio.dart';
 import 'package:flutter_api_test/repos/api_bank/model_get.dart';
 
-// TODO: Проверить код
 class Diobank {
   Future<List<Bank>> getList() async {
     try {
-      final getdata = await Dio().get(
-        'https://api.jsoning.com/mock/4n2yvi18ex/products',
+      final apigetdata = await Dio().get(
+        // Mock API from https://jsoning.com/api/
+        'https://api.jsoning.com/mock/0rvs3rekbb/products',
       );
-      final Map<String, dynamic> datajs = json.decode(getdata.data);
-      final List<dynamic> data = datajs['products'];
-      return data.map((bk) => Bank.fromJson(bk)).toList();
+      if (apigetdata.statusCode == 200) {
+        final List<dynamic> data = apigetdata.data;
+        return data.map((js) => Bank.fromJson(js)).toList();
+      }
+      throw Exception('Error connection');
     } catch (e) {
-      log('Error');
-      throw Exception('Чё-то жёсткое хз');
+      throw Exception('Error in: $e');
     }
   }
 }

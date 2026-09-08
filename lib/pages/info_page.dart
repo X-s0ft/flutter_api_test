@@ -12,7 +12,6 @@ class InfoPage extends ConsumerStatefulWidget {
 }
 
 class _InfoPageState extends ConsumerState<InfoPage> {
-  // TODO: Сделать вывод информации с API
   @override
   Widget build(BuildContext context) {
     ref.watch(riverpdLangIndex);
@@ -24,6 +23,7 @@ class _InfoPageState extends ConsumerState<InfoPage> {
             Text(t.information),
             IconButton(
               onPressed: () {
+                // TODO: Сделать вывод информации в формате ListView
                 Diobank().getList();
               },
               icon: Icon(Icons.dangerous),
