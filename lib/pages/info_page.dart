@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_api_test/assets/i18n/lib/gen/strings.g.dart';
 import 'package:flutter_api_test/repos/api_bank/dio_bank.dart';
+import 'package:flutter_api_test/repos/api_bank/model_get.dart';
 import 'package:flutter_api_test/riverpod/state_riverpod.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -21,12 +22,35 @@ class _InfoPageState extends ConsumerState<InfoPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(t.information),
-            IconButton(
-              onPressed: () {
-                // TODO: Сделать вывод информации в формате ListView
-                Diobank().getList();
-              },
-              icon: Icon(Icons.dangerous),
+            SizedBox(
+              height: MediaQuery.of(context).size.height / 2,
+              child: FutureBuilder<List<Bank>>(
+                future: Diobank().getList(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(child: CircularProgressIndicator());
+                  } else if (snapshot.hasError) {
+                    return Center(
+                      child: Text(
+                        'Ошибка! Возможно у вас нет доступа к интернету',
+                      ),
+                    );
+                  }
+                  final bankdata = snapshot.data!;
+                  return ListView.builder(
+                    itemCount: bankdata.length,
+                    itemBuilder: (context, index) {
+                      final bank = bankdata[index];
+                      return Card(
+                        child: ListTile(
+                          title: Text(bank.name),
+                          subtitle: Text(bank.price.toString()),
+                        ),
+                      );
+                    },
+                  );
+                },
+              ),
             ),
           ],
         ),

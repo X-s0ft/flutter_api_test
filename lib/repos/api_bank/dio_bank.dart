@@ -6,7 +6,7 @@ class Diobank {
     try {
       final apigetdata = await Dio().get(
         // Mock API from https://jsoning.com/api/
-        'https://api.jsoning.com/mock/0rvs3rekbb/products',
+        'https://api.jsoning.com/mock/huuo02eitq/products',
       );
       if (apigetdata.statusCode == 200) {
         final List<dynamic> data = apigetdata.data;
