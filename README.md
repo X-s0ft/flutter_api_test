@@ -32,5 +32,3 @@ Test API and some packages
     riverpod: ^3.4.2
     slang: ^4.19.0
     slang_flutter: ^4.19.0
-
-## **Preview application**
